@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Sorted List</string>
+    <string name="rank">Likes: %d</string>
+</resources>
