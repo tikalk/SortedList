@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Catalogue -->
-    <dimen name="list_image_width">100dp</dimen>
+    <dimen name="list_image_width">200dp</dimen>
     <dimen name="list_image_height">200dp</dimen>
-    <dimen name="list_image_margin_top">20dp</dimen>
+    <dimen name="list_image_margin_top">10dp</dimen>
 </resources>

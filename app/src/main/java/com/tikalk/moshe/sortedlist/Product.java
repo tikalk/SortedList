@@ -44,6 +44,26 @@ public class Product {
     @SerializedName("rank")
     private int rank;
 
+    public Product() {
+    }
+
+    public Product(String id, String stockKeepingUnit, String brand, double currentPrice, String safetyTag, String size, int category, String title, String colour, boolean stocked, double basePrice, List<String> imageUrls, String productId, int rank) {
+        this.id = id;
+        this.stockKeepingUnit = stockKeepingUnit;
+        this.brand = brand;
+        this.currentPrice = currentPrice;
+        this.safetyTag = safetyTag;
+        this.size = size;
+        this.category = category;
+        this.title = title;
+        this.colour = colour;
+        this.stocked = stocked;
+        this.basePrice = basePrice;
+        this.imageUrls = imageUrls;
+        this.productId = productId;
+        this.rank = rank;
+    }
+
     public String getId() {
         return id;
     }
