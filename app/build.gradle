@@ -24,9 +24,15 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
+    // Views
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    // Network
+    compile group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.2.0'
+    // Images
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
 }
