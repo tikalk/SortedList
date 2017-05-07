@@ -10,5 +10,11 @@
         android:id="@+id/image"
         android:layout_width="@dimen/list_image_width"
         android:layout_height="@dimen/list_image_height"
-        tools:src="@drawable/dummy" />
+        tools:src="@drawable/dummy"/>
+
+    <TextView
+        android:id="@android:id/text1"
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </FrameLayout>
