@@ -35,6 +35,6 @@ public class CatalogueViewHolder extends RecyclerView.ViewHolder {
                 .dontAnimate()
                 .into(imageView);
 
-        rankView.setText(Integer.toString(product.getRank()));
+        rankView.setText(context.getString(R.string.rank, product.getRank()));
     }
 }
