@@ -45,7 +45,7 @@ import java.util.List;
  */
 public class Product {
 
-    @SerializedName("_id")
+    @SerializedName("id")
     private String id;
     @SerializedName("sku")
     private String stockKeepingUnit;
@@ -67,18 +67,15 @@ public class Product {
     private boolean stocked;
     @SerializedName("basePrice")
     private double basePrice;
-    @SerializedName("productImageUrls")
+    @SerializedName("imageUrls")
     private List<String> imageUrls;
-    @SerializedName("productId")
-    private String productId;
-
     @SerializedName("rank")
     private int rank;
 
     public Product() {
     }
 
-    public Product(String id, String stockKeepingUnit, String brand, double currentPrice, String safetyTag, String size, int category, String title, String colour, boolean stocked, double basePrice, List<String> imageUrls, String productId, int rank) {
+    public Product(String id, String stockKeepingUnit, String brand, double currentPrice, String safetyTag, String size, int category, String title, String colour, boolean stocked, double basePrice, List<String> imageUrls, int rank) {
         this.id = id;
         this.stockKeepingUnit = stockKeepingUnit;
         this.brand = brand;
@@ -91,7 +88,6 @@ public class Product {
         this.stocked = stocked;
         this.basePrice = basePrice;
         this.imageUrls = imageUrls;
-        this.productId = productId;
         this.rank = rank;
     }
 
@@ -145,10 +141,6 @@ public class Product {
             imageUrls = new ArrayList<>();
         }
         return imageUrls;
-    }
-
-    public String getProductId() {
-        return productId;
     }
 
     /**
