@@ -95,53 +95,96 @@ public class Product {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getStockKeepingUnit() {
         return stockKeepingUnit;
+    }
+
+    public void setStockKeepingUnit(String stockKeepingUnit) {
+        this.stockKeepingUnit = stockKeepingUnit;
     }
 
     public String getBrand() {
         return brand;
     }
 
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
     public double getCurrentPrice() {
         return currentPrice;
+    }
+
+    public void setCurrentPrice(double currentPrice) {
+        this.currentPrice = currentPrice;
     }
 
     public String getSafetyTag() {
         return safetyTag;
     }
 
+    public void setSafetyTag(String safetyTag) {
+        this.safetyTag = safetyTag;
+    }
+
     public String getSize() {
         return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public int getCategory() {
         return category;
     }
 
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getColour() {
         return colour;
     }
 
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
     public boolean isStocked() {
         return stocked;
+    }
+
+    public void setStocked(boolean stocked) {
+        this.stocked = stocked;
     }
 
     public double getBasePrice() {
         return basePrice;
     }
 
-    /**
-     * Get the relevant image path.
-     *
-     * @return the path.
-     */
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getRank() {

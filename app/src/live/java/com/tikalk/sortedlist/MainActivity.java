@@ -33,6 +33,7 @@ package com.tikalk.sortedlist;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
@@ -42,6 +43,11 @@ import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends Activity {
 
@@ -59,16 +65,34 @@ public class MainActivity extends Activity {
         catalogueAdapter = new CatalogueListAdapter(this);
         catalogueList.setAdapter(catalogueAdapter);
 
-        populateCatalogue();
+        connectDatabase();
     }
 
-    private void populateCatalogue() {
-        Firebase db = new Firebase("https://sorted-list.firebaseio.com/catalogue");
-        db.setAndroidContext(this);
-        db.authAnonymously(new Firebase.AuthResultHandler() {
+    private void connectDatabase() {
+        Firebase.setAndroidContext(this);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.signInAnonymously()
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            connectDatabase(task.getResult().getUser());
+                        } else {
+                            Log.w(TAG, "Anonymous user sign-in failed");
+                        }
+                    }
+                });
+    }
+
+    private void connectDatabase(FirebaseUser user) {
+        String token = user.getToken(false).getResult().getToken();
+
+        final Firebase db = new Firebase("https://sorted-list.firebaseio.com/catalogue");
+        db.authWithCustomToken(token, new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
                 Toast.makeText(MainActivity.this, R.string.firebase_authenticated, Toast.LENGTH_SHORT).show();
+                populateCatalogue(db);
             }
 
             @Override
@@ -76,25 +100,30 @@ public class MainActivity extends Activity {
                 Toast.makeText(MainActivity.this, R.string.firebase_error, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void populateCatalogue(Firebase db) {
         db.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                System.out.println("!@# onChildAdded " + dataSnapshot + " " + s);
+                Product product = dataSnapshot.getValue(Product.class);
+                catalogueAdapter.addProduct(product);
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                System.out.println("!@# onChildChanged " + dataSnapshot + " " + s);
+                Product product = dataSnapshot.getValue(Product.class);
+                catalogueAdapter.addProduct(product);
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                System.out.println("!@# onChildRemoved " + dataSnapshot);
+                Product product = dataSnapshot.getValue(Product.class);
+                catalogueAdapter.removeProduct(product);
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                System.out.println("!@# onChildMoved " + dataSnapshot + " " + s);
             }
 
             @Override
