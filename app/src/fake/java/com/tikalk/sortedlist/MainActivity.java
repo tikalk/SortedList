@@ -35,8 +35,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends Activity {
@@ -92,15 +90,15 @@ public class MainActivity extends Activity {
         for (int i = 0; i < count; i++) {
             id = Integer.toString(i);
             stockKeepingUnit = Integer.toHexString(i);
-            brand = "Pexel";
+            brand = "Tikal";
             currentPrice = random.nextDouble() * 1000;
             safetyTag = null;
             size = "Medium";
             category = 0;
             title = "`Title " + i;
-            colour = "orange";
-            stocked = true;
-            basePrice = currentPrice - (random.nextDouble() * 100);
+            colour = "#" + Integer.toHexString(random.nextInt(0xFFFFFF));
+            stocked = random.nextBoolean();
+            basePrice = currentPrice + (random.nextDouble() * 100);
             imageUrl = URL[random.nextInt(URL.length)];
             rank = Math.abs(random.nextInt());
             product = new Product(id, stockKeepingUnit, brand, currentPrice, safetyTag, size, category, title, colour, stocked, basePrice, imageUrl, rank);
