@@ -86,10 +86,8 @@ public class MainActivity extends Activity {
         String colour;
         boolean stocked;
         double basePrice;
-        List<String> imageUrls;
-        String productId;
+        String imageUrl;
         int rank;
-        String url;
 
         for (int i = 0; i < count; i++) {
             id = Integer.toString(i);
@@ -103,11 +101,9 @@ public class MainActivity extends Activity {
             colour = "orange";
             stocked = true;
             basePrice = currentPrice - (random.nextDouble() * 100);
-            url = URL[random.nextInt(URL.length)];
-            imageUrls = Arrays.asList(url);
-            productId = id;
+            imageUrl = URL[random.nextInt(URL.length)];
             rank = Math.abs(random.nextInt());
-            product = new Product(id, stockKeepingUnit, brand, currentPrice, safetyTag, size, category, title, colour, stocked, basePrice, imageUrls, productId, rank);
+            product = new Product(id, stockKeepingUnit, brand, currentPrice, safetyTag, size, category, title, colour, stocked, basePrice, imageUrl, rank);
             catalogueAdapter.addProduct(product);
         }
     }

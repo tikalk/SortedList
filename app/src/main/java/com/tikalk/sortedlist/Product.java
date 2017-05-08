@@ -63,19 +63,19 @@ public class Product {
     private String title;
     @SerializedName("colour")
     private String colour;
-    @SerializedName("inStock")
+    @SerializedName("stocked")
     private boolean stocked;
     @SerializedName("basePrice")
     private double basePrice;
-    @SerializedName("imageUrls")
-    private List<String> imageUrls;
+    @SerializedName("imageUrl")
+    private String imageUrl;
     @SerializedName("rank")
     private int rank;
 
     public Product() {
     }
 
-    public Product(String id, String stockKeepingUnit, String brand, double currentPrice, String safetyTag, String size, int category, String title, String colour, boolean stocked, double basePrice, List<String> imageUrls, int rank) {
+    public Product(String id, String stockKeepingUnit, String brand, double currentPrice, String safetyTag, String size, int category, String title, String colour, boolean stocked, double basePrice, String imageUrl, int rank) {
         this.id = id;
         this.stockKeepingUnit = stockKeepingUnit;
         this.brand = brand;
@@ -87,7 +87,7 @@ public class Product {
         this.colour = colour;
         this.stocked = stocked;
         this.basePrice = basePrice;
-        this.imageUrls = imageUrls;
+        this.imageUrl = imageUrl;
         this.rank = rank;
     }
 
@@ -135,21 +135,13 @@ public class Product {
         return basePrice;
     }
 
-    @NonNull
-    public List<String> getImageUrls() {
-        if (imageUrls == null) {
-            imageUrls = new ArrayList<>();
-        }
-        return imageUrls;
-    }
-
     /**
      * Get the relevant image path.
      *
      * @return the path.
      */
     public String getImageUrl() {
-        return imageUrls.get(0);
+        return imageUrl;
     }
 
     public int getRank() {
