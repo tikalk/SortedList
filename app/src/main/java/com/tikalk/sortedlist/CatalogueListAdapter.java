@@ -29,7 +29,7 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.tikalk.moshe.sortedlist;
+package com.tikalk.sortedlist;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -143,16 +143,30 @@ public class CatalogueListAdapter extends RecyclerView.Adapter<CatalogueViewHold
     }
 
     /**
-     * Add an image path.
+     * Add a product.
      *
      * @param product the product.
      */
     public void addProduct(Product product) {
         String id = product.getId();
+        if (productsById.containsKey(id)) {
+            Product productOld = productsById.get(id);
+            products.remove(productOld);
+        }
         if (products.add(product) >= 0) {
             productsById.put(id, product);
             //called by SortedList: notifyDataSetChanged();
         }
+    }
+
+    /**
+     * Remove a product.
+     *
+     * @param product the product.
+     */
+    public void removeProduct(Product product) {
+        String id = product.getId();
+        products.remove(productsById.remove(id));
     }
 
     /**

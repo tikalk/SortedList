@@ -29,7 +29,7 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.tikalk.moshe.sortedlist;
+package com.tikalk.sortedlist;
 
 import android.support.annotation.NonNull;
 
@@ -45,7 +45,7 @@ import java.util.List;
  */
 public class Product {
 
-    @SerializedName("_id")
+    @SerializedName("id")
     private String id;
     @SerializedName("sku")
     private String stockKeepingUnit;
@@ -63,22 +63,19 @@ public class Product {
     private String title;
     @SerializedName("colour")
     private String colour;
-    @SerializedName("inStock")
+    @SerializedName("stocked")
     private boolean stocked;
     @SerializedName("basePrice")
     private double basePrice;
-    @SerializedName("productImageUrls")
-    private List<String> imageUrls;
-    @SerializedName("productId")
-    private String productId;
-
+    @SerializedName("imageUrl")
+    private String imageUrl;
     @SerializedName("rank")
     private int rank;
 
     public Product() {
     }
 
-    public Product(String id, String stockKeepingUnit, String brand, double currentPrice, String safetyTag, String size, int category, String title, String colour, boolean stocked, double basePrice, List<String> imageUrls, String productId, int rank) {
+    public Product(String id, String stockKeepingUnit, String brand, double currentPrice, String safetyTag, String size, int category, String title, String colour, boolean stocked, double basePrice, String imageUrl, int rank) {
         this.id = id;
         this.stockKeepingUnit = stockKeepingUnit;
         this.brand = brand;
@@ -90,8 +87,7 @@ public class Product {
         this.colour = colour;
         this.stocked = stocked;
         this.basePrice = basePrice;
-        this.imageUrls = imageUrls;
-        this.productId = productId;
+        this.imageUrl = imageUrl;
         this.rank = rank;
     }
 
@@ -99,65 +95,96 @@ public class Product {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getStockKeepingUnit() {
         return stockKeepingUnit;
+    }
+
+    public void setStockKeepingUnit(String stockKeepingUnit) {
+        this.stockKeepingUnit = stockKeepingUnit;
     }
 
     public String getBrand() {
         return brand;
     }
 
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
     public double getCurrentPrice() {
         return currentPrice;
+    }
+
+    public void setCurrentPrice(double currentPrice) {
+        this.currentPrice = currentPrice;
     }
 
     public String getSafetyTag() {
         return safetyTag;
     }
 
+    public void setSafetyTag(String safetyTag) {
+        this.safetyTag = safetyTag;
+    }
+
     public String getSize() {
         return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public int getCategory() {
         return category;
     }
 
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getColour() {
         return colour;
     }
 
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
     public boolean isStocked() {
         return stocked;
+    }
+
+    public void setStocked(boolean stocked) {
+        this.stocked = stocked;
     }
 
     public double getBasePrice() {
         return basePrice;
     }
 
-    @NonNull
-    public List<String> getImageUrls() {
-        if (imageUrls == null) {
-            imageUrls = new ArrayList<>();
-        }
-        return imageUrls;
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
     }
 
-    public String getProductId() {
-        return productId;
-    }
-
-    /**
-     * Get the relevant image path.
-     *
-     * @return the path.
-     */
     public String getImageUrl() {
-        return imageUrls.get(0);
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getRank() {
