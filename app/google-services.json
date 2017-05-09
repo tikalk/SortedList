@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "206306675159-6d6uo48v8ap42lfd9qjveo4e55n33fp6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tikalk.sortedlist.fake",
+            "certificate_hash": "4ddb81f84607f2b107f6dc8dc00e67ecf6a58785"
+          }
+        },
+        {
           "client_id": "206306675159-7hpht8m0rbndegst7hekac42bkn1oeq4.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206306675159-7hpht8m0rbndegst7hekac42bkn1oeq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
@@ -46,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "206306675159-f3ekrnvnrj7psb5bm5v4ck31dh97o97h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tikalk.sortedlist.live",
+            "certificate_hash": "4ddb81f84607f2b107f6dc8dc00e67ecf6a58785"
+          }
+        },
+        {
           "client_id": "206306675159-7hpht8m0rbndegst7hekac42bkn1oeq4.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -60,8 +81,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206306675159-7hpht8m0rbndegst7hekac42bkn1oeq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

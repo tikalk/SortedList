@@ -61,8 +61,6 @@ public class CatalogueViewHolder extends RecyclerView.ViewHolder {
         Context context = imageView.getContext();
         Glide.with(context)
                 .load(product.getImageUrl())
-                .asBitmap()
-                .dontAnimate()
                 .into(imageView);
 
         rankView.setText(context.getString(R.string.rank, product.getRank()));
